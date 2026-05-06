@@ -1276,45 +1276,47 @@
 
 /* ── Dialog resize handle (bottom-right corner) ──────────────────────── */
 
-.resizeHandle {
+/* ── Edge + corner resize handles ───────────────────────────────────── */
+
+.resizeN, .resizeS, .resizeW, .resizeE,
+.resizeNW, .resizeNE, .resizeSW, .resizeSE {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 18px;
-  height: 18px;
-  cursor: nwse-resize;
-  z-index: 10;
-  background: transparent;
+  z-index: 20;
 }
-.resizeHandle::after {
+
+/* Edges */
+.resizeN  { top: 0;    left: 8px;  right: 8px;  height: 5px; cursor: n-resize; }
+.resizeS  { bottom: 0; left: 8px;  right: 8px;  height: 5px; cursor: s-resize; }
+.resizeW  { left: 0;   top: 8px;   bottom: 8px; width: 5px;  cursor: w-resize; }
+.resizeE  { right: 0;  top: 8px;   bottom: 8px; width: 5px;  cursor: e-resize; }
+
+/* Corners */
+.resizeNW { top: 0;    left: 0;  width: 12px; height: 12px; cursor: nw-resize; }
+.resizeNE { top: 0;    right: 0; width: 12px; height: 12px; cursor: ne-resize; }
+.resizeSW { bottom: 0; left: 0;  width: 12px; height: 12px; cursor: sw-resize; }
+.resizeSE { bottom: 0; right: 0; width: 12px; height: 12px; cursor: se-resize; }
+
+/* Subtle visual indicator on bottom-right corner (SE) */
+.resizeSE::after {
   content: '';
   position: absolute;
   bottom: 3px;
   right: 3px;
   width: 10px;
   height: 10px;
-  background:
-    linear-gradient(
-      135deg,
-      transparent 0%,
-      transparent 40%,
-      var(--ifm-color-emphasis-400) 40%,
-      var(--ifm-color-emphasis-400) 50%,
-      transparent 50%,
-      transparent 60%,
-      var(--ifm-color-emphasis-400) 60%,
-      var(--ifm-color-emphasis-400) 70%,
-      transparent 70%,
-      transparent 80%,
-      var(--ifm-color-emphasis-400) 80%,
-      var(--ifm-color-emphasis-400) 90%,
-      transparent 90%
-    );
-  opacity: 0.6;
+  background: linear-gradient(
+    135deg,
+    transparent 40%,
+    var(--ifm-color-emphasis-400) 40%, var(--ifm-color-emphasis-400) 50%,
+    transparent 50%, transparent 60%,
+    var(--ifm-color-emphasis-400) 60%, var(--ifm-color-emphasis-400) 70%,
+    transparent 70%, transparent 80%,
+    var(--ifm-color-emphasis-400) 80%, var(--ifm-color-emphasis-400) 90%,
+    transparent 90%
+  );
+  opacity: 0.5;
 }
-.resizeHandle:hover::after {
-  opacity: 1;
-}
+.resizeSE:hover::after { opacity: 1; }
 
 /* ── Full-screen mode ────────────────────────────────────── */
 

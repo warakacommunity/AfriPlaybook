@@ -574,28 +574,46 @@ export function StructureEditorContent({ onClose }) {
     document.addEventListener('mouseup',   onUp);
   }
 
-  function handleDialogResizeMouseDown(e) {
+  function handleResizeMouseDown(e, dirs) {
     e.preventDefault();
     e.stopPropagation();
-    const startX = e.clientX;
-    const startY = e.clientY;
-    const startW = modalSize.width;
-    const startH = modalSize.height;
-    document.body.style.cursor = 'nwse-resize';
+    const startX  = e.clientX;
+    const startY  = e.clientY;
+    const startW  = modalSize.width;
+    const startH  = modalSize.height;
+    const startLeft = modalPos ? modalPos.x : (window.innerWidth  - startW) / 2;
+    const startTop  = modalPos ? modalPos.y : (window.innerHeight - startH) / 2;
+
+    const cursorMap = {
+      top: 'n-resize', bottom: 's-resize', left: 'w-resize', right: 'e-resize',
+      'top-left': 'nw-resize', 'top-right': 'ne-resize',
+      'bottom-left': 'sw-resize', 'bottom-right': 'se-resize',
+    };
+    const key = [dirs.top && 'top', dirs.bottom && 'bottom', dirs.left && 'left', dirs.right && 'right'].filter(Boolean).join('-');
+    document.body.style.cursor     = cursorMap[key] || 'default';
     document.body.style.userSelect = 'none';
+
     function onMove(ev) {
-      const w = Math.max(600, Math.min(window.innerWidth - 32, startW + ev.clientX - startX));
-      const h = Math.max(400, Math.min(window.innerHeight - 32, startH + ev.clientY - startY));
-      setModalSize({ width: w, height: h });
+      const dx = ev.clientX - startX;
+      const dy = ev.clientY - startY;
+      let newW = startW, newH = startH, newX = startLeft, newY = startTop;
+
+      if (dirs.right)  newW = Math.max(600, Math.min(window.innerWidth  - startLeft - 8, startW + dx));
+      if (dirs.bottom) newH = Math.max(400, Math.min(window.innerHeight - startTop  - 8, startH + dy));
+      if (dirs.left)  { newW = Math.max(600, startW - dx); newX = startLeft + (startW - newW); }
+      if (dirs.top)   { newH = Math.max(400, startH - dy); newY = startTop  + (startH - newH); }
+
+      setModalSize({ width: newW, height: newH });
+      setModalPos({ x: newX, y: newY });
     }
     function onUp() {
-      document.body.style.cursor = '';
+      document.body.style.cursor     = '';
       document.body.style.userSelect = '';
       document.removeEventListener('mousemove', onMove);
-      document.removeEventListener('mouseup', onUp);
+      document.removeEventListener('mouseup',   onUp);
     }
     document.addEventListener('mousemove', onMove);
-    document.addEventListener('mouseup', onUp);
+    document.addEventListener('mouseup',   onUp);
   }
 
   const tree = useMemo(() => computeDocsTree(gitFiles, catData, changes), [gitFiles, catData, changes]);
@@ -977,31 +995,6 @@ export function StructureEditorContent({ onClose }) {
     function onMove(ev) {
       const max = container.offsetWidth - 204;
       setTranslateSplitWidth(Math.max(200, Math.min(max, startWidth + ev.clientX - startX)));
-    }
-    function onUp() {
-      document.body.style.cursor = '';
-      document.body.style.userSelect = '';
-      document.removeEventListener('mousemove', onMove);
-      document.removeEventListener('mouseup', onUp);
-    }
-    document.addEventListener('mousemove', onMove);
-    document.addEventListener('mouseup', onUp);
-  }
-
-  function handleDialogResizeMouseDown(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    const startX = e.clientX;
-    const startY = e.clientY;
-    const startW = modalSize.width;
-    const startH = modalSize.height;
-    document.body.style.cursor = 'nwse-resize';
-    document.body.style.userSelect = 'none';
-    function onMove(ev) {
-      setModalSize({
-        width: Math.max(600, Math.min(window.innerWidth - 32, startW + ev.clientX - startX)),
-        height: Math.max(400, Math.min(window.innerHeight - 32, startH + ev.clientY - startY)),
-      });
     }
     function onUp() {
       document.body.style.cursor = '';
@@ -1975,14 +1968,17 @@ export function StructureEditorContent({ onClose }) {
           </div>
         )}
 
-        {/* Resize handle — hidden in fullscreen */}
-        {!fullscreen && (
-          <div
-            className={styles.resizeHandle}
-            onMouseDown={handleDialogResizeMouseDown}
-            title="Drag to resize"
-          />
-        )}
+        {/* Resize handles — hidden in fullscreen */}
+        {!fullscreen && <>
+          <div className={styles.resizeN}  onMouseDown={e => handleResizeMouseDown(e, { top: true })} />
+          <div className={styles.resizeS}  onMouseDown={e => handleResizeMouseDown(e, { bottom: true })} />
+          <div className={styles.resizeW}  onMouseDown={e => handleResizeMouseDown(e, { left: true })} />
+          <div className={styles.resizeE}  onMouseDown={e => handleResizeMouseDown(e, { right: true })} />
+          <div className={styles.resizeNW} onMouseDown={e => handleResizeMouseDown(e, { top: true, left: true })} />
+          <div className={styles.resizeNE} onMouseDown={e => handleResizeMouseDown(e, { top: true, right: true })} />
+          <div className={styles.resizeSW} onMouseDown={e => handleResizeMouseDown(e, { bottom: true, left: true })} />
+          <div className={styles.resizeSE} onMouseDown={e => handleResizeMouseDown(e, { bottom: true, right: true })} />
+        </>}
       </div>
     </div>
   );
