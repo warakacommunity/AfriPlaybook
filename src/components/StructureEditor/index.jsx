@@ -517,7 +517,7 @@ export function StructureEditorContent({ onClose }) {
 
   // Translation tab
   const [rightPanelTab, setRightPanelTab] = useState('edit'); // 'edit' | 'translate'
-  const [translationLang, setTranslationLang] = useState('fr');
+  const [translationLang, setTranslationLang] = useState('ha');
   const [translationHtml, setTranslationHtml] = useState('');
   const [translateKey, setTranslateKey] = useState(0);
   const [translating, setTranslating] = useState(false);
@@ -1622,18 +1622,11 @@ export function StructureEditorContent({ onClose }) {
                               value={translationLang}
                               onChange={e => { setTranslationLang(e.target.value); setTranslationHtml(''); setTranslateError(''); }}
                             >
-                              <option value="fr">French</option>
-                              <option value="ar">Arabic</option>
-                              <option value="pt">Portuguese</option>
                               <option value="ha">Hausa</option>
-                              <option value="sw">Swahili</option>
                               <option value="am">Amharic</option>
-                              <option value="yo">Yoruba</option>
-                              <option value="ig">Igbo</option>
-                              <option value="zu">Zulu</option>
-                              <option value="om">Oromo</option>
-                              <option value="so">Somali</option>
-                              <option value="rw">Kinyarwanda</option>
+                              <option value="sw">Swahili</option>
+                              <option value="fr">Français</option>
+                              <option value="pt">Português</option>
                             </select>
                             {translationProxy && (
                               <button
