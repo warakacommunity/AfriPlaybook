@@ -32,6 +32,9 @@ jobs:
       - name: Generate Playbook PDF
         run: yarn pdf:built
 
+      - name: Copy PDF into build output
+        run: mkdir -p build/downloads && cp static/downloads/masakhane-playbook.pdf build/downloads/
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
