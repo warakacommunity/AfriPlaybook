@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { loginWithGitHub, startDeviceFlow, pollDeviceFlow } from '@site/src/utils/github';
 import styles from './index.module.css';
 

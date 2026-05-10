@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './index.module.css';
 
 export function InlineForm({ placeholder, initialValue = '', onConfirm, onCancel }) {

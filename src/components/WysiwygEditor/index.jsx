@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import styles from '@site/src/components/EditModal/index.module.css';
 
 function ToolBtn({ title, onAction, children }) {
