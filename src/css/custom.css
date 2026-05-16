@@ -8,21 +8,24 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  /* Tailwind Emerald-600 — designer-favorite modern green, used across
-     Vercel surfaces, Postman, GitHub activity. More confident than the
-     muted Docusaurus forest default (#2e8555). Strong on white/cream,
-     reads as "premium open source." */
-  --ifm-color-primary: #059669;        /* emerald-600 */
-  --ifm-color-primary-dark: #047857;   /* emerald-700 */
-  --ifm-color-primary-darker: #036648; /* between emerald-700 and 800 */
-  --ifm-color-primary-darkest: #065f46;/* emerald-800 */
-  --ifm-color-primary-light: #0fa674;  /* slightly lighter than 600 */
-  --ifm-color-primary-lighter: #10b981;/* emerald-500 */
-  --ifm-color-primary-lightest: #34d399;/* emerald-400 */
-  /* Same hue as primary, used for the brand-tinted backgrounds (showcase
-     spotlight, callouts, hover hints). Centralised so we don't repeat the
-     RGB triplet in 10+ places. */
-  --brand-rgb: 5, 150, 105;
+  /* Coursera signature blue. Used sparingly — buttons, links, eyebrow
+     tags, accent text. The rest of the page stays monochrome. */
+  --ifm-color-primary: #0056D2;        /* Coursera blue */
+  --ifm-color-primary-dark: #0046AE;   /* hover */
+  --ifm-color-primary-darker: #003E9C;
+  --ifm-color-primary-darkest: #003280;
+  --ifm-color-primary-light: #1E6FE0;
+  --ifm-color-primary-lighter: #4A8DEC;
+  --ifm-color-primary-lightest: #B7D0F4;
+  /* Same hue as primary — used in alpha tints for soft surfaces, callouts,
+     and hover hints. Keeps RGB triplet centralised. */
+  --brand-rgb: 0, 86, 210;
+  /* Coursera's deep navy — used for stat callout bands and CTA blocks
+     where the brand blue would be too saturated. */
+  --brand-navy: #0A2540;
+  /* Soft surface tint (Coursera "Prepare for an in-demand career"
+     wash). Use for grouped card containers, not for full sections. */
+  --brand-surface-tint: #EAF1FE;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
@@ -132,18 +135,17 @@ article p,
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  /* Emerald family, brighter than light-mode primary for contrast on
-     dark backgrounds. Same hue as light mode — toggling theme stays
-     coherent. */
-  --ifm-color-primary: #10b981;        /* emerald-500 */
-  --ifm-color-primary-dark: #059669;   /* emerald-600 */
-  --ifm-color-primary-darker: #047857; /* emerald-700 */
-  --ifm-color-primary-darkest: #065f46;/* emerald-800 */
-  --ifm-color-primary-light: #34d399;  /* emerald-400 */
-  --ifm-color-primary-lighter: #6ee7b7;/* emerald-300 */
-  --ifm-color-primary-lightest: #a7f3d0;/* emerald-200 */
-  /* Slightly brighter brand RGB for use in low-alpha tints on dark bg */
-  --brand-rgb: 16, 185, 129;
+  /* Coursera blue, brightened for AA contrast on dark surfaces. Same
+     hue as light mode so toggling stays coherent. */
+  --ifm-color-primary: #5B97F1;
+  --ifm-color-primary-dark: #3B82F6;
+  --ifm-color-primary-darker: #2563EB;
+  --ifm-color-primary-darkest: #1D4ED8;
+  --ifm-color-primary-light: #7FB0F5;
+  --ifm-color-primary-lighter: #A4C7F8;
+  --ifm-color-primary-lightest: #DBE8FB;
+  /* Brighter brand RGB for low-alpha tints on dark bg. */
+  --brand-rgb: 91, 151, 241;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 

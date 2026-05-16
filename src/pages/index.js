@@ -136,13 +136,17 @@ function HeroSection() {
 const SUPPORTERS = [
   {
     name: 'Masakhane African Languages Hub',
-    logo: '/img/supporters/masakhane.png',
+    logo: '/img/supporters/masakhanecommunity.jpeg',
     url: 'https://www.masakhane.io/',
   },
   {
     name: 'Bayero University, Kano',
     logo: '/img/supporters/bayero.png',
     url: 'https://www.buk.edu.ng/',
+    // BUK's official logo banner is white-on-blue. Match the card to the
+    // logo's native background so it reads as one cohesive tile rather than
+    // a blue rectangle floating inside a white card.
+    bg: '#1c5080',
   },
   {
     name: 'Bahir Dar University',
@@ -158,14 +162,20 @@ const SUPPORTERS = [
 
 function SupportedBySection() {
   const {withBaseUrl} = useBaseUrlUtils();
-  const track = [...SUPPORTERS, ...SUPPORTERS];
   // Resolve logo paths through baseUrl so they work under /MasakhanePlaybook/.
   // External absolute URLs (http/https) are passed through unchanged.
   const resolveLogo = (src) =>
     /^https?:\/\//.test(src) ? src : withBaseUrl(src);
+  // Defensive dedup — strip any accidental duplicates by URL.
+  const supporters = SUPPORTERS.filter(
+    (s, i, arr) => arr.findIndex((x) => x.url === s.url) === i,
+  );
+  // Always animate — logos are large enough that the doubled track exceeds
+  // the viewport, so both halves are never visible at once. Duplicates are
+  // hidden from screen readers and keyboard nav.
+  const track = [...supporters, ...supporters];
   return (
     <div className={styles.supportedByCard} aria-label="Project supporters">
-      <p className={styles.supportersLabel}>SUPPORTED BY</p>
       <div className={styles.supportersMarquee}>
         <div className={styles.supportersTrack}>
           {track.map((s, idx) => (
@@ -173,17 +183,30 @@ function SupportedBySection() {
               key={`${s.name}-${idx}`}
               href={s.url}
               className={styles.supporterLogo}
+              style={
+                s.bg
+                  ? {
+                      background: s.bg,
+                      borderColor: 'transparent',
+                      // Tighter padding when card matches the logo bg —
+                      // the logo already has its own internal margin.
+                      padding: '0',
+                      overflow: 'hidden',
+                    }
+                  : undefined
+              }
               target="_blank"
               rel="noreferrer noopener"
               aria-label={s.name}
-              aria-hidden={idx >= SUPPORTERS.length ? 'true' : undefined}
-              tabIndex={idx >= SUPPORTERS.length ? -1 : undefined}
+              aria-hidden={idx >= supporters.length ? 'true' : undefined}
+              tabIndex={idx >= supporters.length ? -1 : undefined}
             >
               <img
                 src={resolveLogo(s.logo)}
                 alt={s.name}
                 loading="lazy"
                 decoding="async"
+                style={s.bg ? {height: '100%', maxWidth: '320px'} : undefined}
               />
             </a>
           ))}

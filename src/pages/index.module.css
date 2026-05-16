@@ -6,12 +6,16 @@
 
 /* ---------- Shared tokens ---------- */
 .section {
-  padding: 6.5rem 0;
+  padding: 8rem 0;
   background: var(--ifm-background-color);
 }
 
 .altSection {
-  background: var(--ifm-color-emphasis-100);
+  background: #F5F7FA;
+}
+
+[data-theme='dark'] .altSection {
+  background: var(--ifm-color-emphasis-200);
 }
 
 /* Mobile-only render skipping: defer rendering of off-screen sections so the
@@ -24,34 +28,15 @@
   }
 }
 
-[data-theme='dark'] .altSection {
-  background: var(--ifm-color-emphasis-200);
-}
-
-/* Showcase: the deliberate "product spotlight" treatment for the Tool
-   feature. Brand-tinted radial highlight from the top draws the eye to
-   the mockup; hairline borders set it apart from neighboring sections. */
+/* Showcase: clean white spotlight for the Tool feature. Coursera uses
+   plain white surfaces for product visuals; hairline borders set the
+   section apart from neighbors without requiring a tint. */
 .showcaseSection {
   position: relative;
   background: var(--ifm-background-color);
   border-top: 1px solid var(--ifm-color-emphasis-200);
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
   overflow: hidden;
-  isolation: isolate;
-}
-
-.showcaseSection::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse 80% 60% at 50% 0%,
-    rgba(var(--brand-rgb), 0.09) 0%,
-    rgba(var(--brand-rgb), 0.04) 35%,
-    transparent 70%
-  );
-  pointer-events: none;
-  z-index: -1;
 }
 
 [data-theme='dark'] .showcaseSection {
@@ -59,24 +44,15 @@
   border-bottom-color: var(--ifm-color-emphasis-300);
 }
 
-[data-theme='dark'] .showcaseSection::before {
-  background: radial-gradient(
-    ellipse 80% 60% at 50% 0%,
-    rgba(70, 180, 120, 0.10) 0%,
-    rgba(70, 180, 120, 0.05) 35%,
-    transparent 70%
-  );
-}
-
 @media (max-width: 768px) {
   .section {
-    padding: 4rem 0;
+    padding: 5rem 0;
   }
 }
 
 .sectionHeader {
   max-width: 780px;
-  margin: 0 auto 3.5rem;
+  margin: 0 auto 4.5rem;
   text-align: center;
 }
 
@@ -107,50 +83,50 @@
   margin: 0;
 }
 
-/* ---------- Buttons (with icon support) ---------- */
+/* ---------- Buttons (Coursera-style pill) ---------- */
 .primaryButton,
 .secondaryButton {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  padding: 0.95rem 1.7rem;
-  font-weight: 600;
-  font-size: 1.02rem;
-  border-radius: 11px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  padding: 0.85rem 1.65rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 999px;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
 
 .primaryButton {
   background: var(--ifm-color-primary);
   color: #fff;
   border: 1px solid var(--ifm-color-primary);
-  box-shadow: 0 8px 22px rgba(var(--brand-rgb), 0.28);
 }
 
 .primaryButton:hover {
   background: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
   color: #fff;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   text-decoration: none;
-  box-shadow: 0 12px 30px rgba(var(--brand-rgb), 0.38);
 }
 
 .secondaryButton {
-  background: transparent;
-  color: var(--ifm-color-emphasis-900);
-  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-primary);
 }
 
 .secondaryButton:hover {
-  border-color: var(--ifm-color-primary);
   background: rgba(var(--brand-rgb), 0.06);
-  color: var(--ifm-color-emphasis-900);
-  transform: translateY(-2px);
+  border-color: var(--ifm-color-primary-dark);
+  color: var(--ifm-color-primary-dark);
+  transform: translateY(-1px);
   text-decoration: none;
 }
 
 [data-theme='dark'] .secondaryButton {
-  color: var(--ifm-color-emphasis-1000);
+  background: transparent;
+  color: var(--ifm-color-primary);
 }
 
 /* ============================================================
@@ -165,12 +141,11 @@
   background: var(--ifm-background-color);
 }
 
-/* Widen the hero's container beyond Docusaurus's default 1320px so the
-   H1 and hero photo span more of the viewport on wide displays — no
-   awkward dead space on the left/right. Bounded at 1480 so line lengths
-   stay readable on ultrawide monitors. */
+/* Cap the hero container at Coursera's 1280px. Wider than this and the
+   headline starts to feel stretched on ultrawide displays; narrower and
+   the hero photo cramps. */
 .hero > .container {
-  max-width: 1480px;
+  max-width: 1280px;
 }
 
 .heroGrid {
@@ -275,10 +250,9 @@
   height: 460px;
   border-radius: 16px;
   overflow: hidden;
-  background-color: #2a2a2a;
+  background-color: var(--ifm-color-emphasis-100);
   background-size: cover;
   background-position: center;
-  background-blend-mode: luminosity;
 }
 
 .heroPhoto::after {
@@ -1498,9 +1472,9 @@
   max-width: 540px;
   background: var(--ifm-background-color);
   border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 14px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 18px 40px -22px rgba(15, 23, 42, 0.16);
 }
 
 .mockBar {
@@ -2327,7 +2301,7 @@
   flex-direction: column;
   background: var(--ifm-background-color);
   border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 14px;
+  border-radius: 12px;
   padding: 1.6rem 1.5rem 3rem;
   text-decoration: none !important;
   color: inherit;
@@ -2336,21 +2310,25 @@
 }
 
 .getInvolvedCard:hover {
-  transform: translateY(-3px);
-  border-color: var(--ifm-color-primary);
-  box-shadow: 0 16px 32px -20px rgba(0, 0, 0, 0.18);
+  transform: translateY(-2px);
+  border-color: var(--ifm-color-emphasis-300);
+  box-shadow: 0 6px 18px -8px rgba(15, 23, 42, 0.08);
 }
 
 .getInvolvedIcon {
   width: 44px;
   height: 44px;
-  border-radius: 12px;
-  background: rgba(var(--brand-rgb), 0.1);
+  border-radius: 10px;
+  background: var(--brand-surface-tint);
   color: var(--ifm-color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
+}
+
+[data-theme='dark'] .getInvolvedIcon {
+  background: rgba(var(--brand-rgb), 0.18);
 }
 
 .getInvolvedTitle {
@@ -2460,7 +2438,7 @@
   flex-direction: column;
   background: var(--ifm-background-color);
   border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 14px;
+  border-radius: 12px;
   overflow: hidden;
   text-decoration: none !important;
   color: inherit;
@@ -2469,9 +2447,9 @@
 }
 
 .blogTeaserCard:hover {
-  transform: translateY(-3px);
-  border-color: var(--ifm-color-primary-lighter);
-  box-shadow: 0 12px 28px -16px rgba(0, 0, 0, 0.18);
+  transform: translateY(-2px);
+  border-color: var(--ifm-color-emphasis-300);
+  box-shadow: 0 6px 18px -8px rgba(15, 23, 42, 0.08);
 }
 
 .blogTeaserThumb {
@@ -2585,85 +2563,71 @@
 }
 
 /* ============================================================
-   TESTIMONIALS — dark band, 2x2 grid of researcher endorsements.
-   Sits between Blog (cream) and Get Involved (white) so it
-   provides a deliberate visual break + social proof before CTA.
+   TESTIMONIALS — light cards on a clean white surface (Coursera's
+   "Why people choose Coursera" pattern). Plain, monochrome, lots
+   of breathing room.
    ============================================================ */
 .testimonialsSection {
   position: relative;
-  padding: 5rem 0;
-  background:
-    radial-gradient(ellipse at 30% 0%, rgba(var(--brand-rgb), 0.18) 0%, transparent 55%),
-    linear-gradient(180deg, #14171f 0%, #1c2029 100%);
-  color: #fff;
-  overflow: hidden;
+  padding: 8rem 0;
+  background: var(--ifm-background-color);
+}
+
+[data-theme='dark'] .testimonialsSection {
+  background: var(--ifm-background-color);
 }
 
 .testimonialsHeader {
-  text-align: center;
   max-width: 720px;
-  margin: 0 auto 2.5rem;
+  margin: 0 0 3rem;
 }
 
-/* Mirrors .blogTeaserHeading sizing/weight/tracking, with white text
-   for the dark testimonial band. Keeps the section header rhythm
-   consistent with "From the Blog" elsewhere on the page. */
 .testimonialsHeading {
   font-size: clamp(1.7rem, 3.4vw, 2.6rem);
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.15;
   margin: 0;
-  color: #fff;
+  color: var(--ifm-color-emphasis-1000);
 }
 
 .testimonialsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
-  gap: 1.1rem;
-  max-width: 1200px;
+  gap: 1.25rem;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
 .testimonialCard {
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 14px;
-  padding: 1.5rem 1.5rem 1.25rem;
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem 1.4rem;
   transition: border-color 0.2s ease, transform 0.2s ease,
-    background 0.2s ease;
+    box-shadow 0.2s ease;
 }
 
 .testimonialCard:hover {
-  border-color: rgba(var(--brand-rgb), 0.5);
-  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--ifm-color-emphasis-300);
   transform: translateY(-2px);
+  box-shadow: 0 6px 18px -8px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme='dark'] .testimonialCard {
+  background: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-emphasis-200);
 }
 
 .testimonialQuote {
-  font-size: 0.95rem;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 500;
-  margin: 0 0 1.25rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-800);
+  font-weight: 400;
+  margin: 0 0 1.4rem;
   flex-grow: 1;
-  position: relative;
-}
-
-.testimonialQuote::before {
-  content: '\201C'; /* opening curly quote */
-  position: absolute;
-  top: -1.1rem;
-  left: -0.35rem;
-  font-size: 2.8rem;
-  line-height: 1;
-  font-family: Georgia, 'Times New Roman', serif;
-  color: rgba(var(--brand-rgb), 0.22);
-  pointer-events: none;
-  -webkit-user-select: none;
-  user-select: none;
 }
 
 .testimonialAuthor {
@@ -2671,26 +2635,24 @@
   align-items: center;
   gap: 0.85rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
 }
 
 .testimonialAvatar {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: #fff;
   letter-spacing: 0.02em;
   flex-shrink: 0;
-  /* For <img>: cover-fit and a subtle ring so photos sit cleanly on the
-     dark card. The properties below are no-ops on the <span> fallback. */
   object-fit: cover;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
 }
 
 .testimonialAuthorMeta {
@@ -2701,17 +2663,17 @@
 }
 
 .testimonialName {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--ifm-color-emphasis-1000);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .testimonialRole {
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.82rem;
+  color: var(--ifm-color-emphasis-700);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2719,17 +2681,17 @@
 
 @media (max-width: 768px) {
   .testimonialsSection {
-    padding: 3.5rem 0;
+    padding: 5rem 0;
   }
   .testimonialsHeader {
-    margin-bottom: 2.25rem;
+    margin-bottom: 2.5rem;
   }
   .testimonialsGrid {
     grid-template-columns: 1fr;
     gap: 1.1rem;
   }
   .testimonialCard {
-    padding: 1.4rem 1.4rem 1.2rem;
+    padding: 1.5rem 1.4rem 1.25rem;
   }
 }
 
@@ -2937,16 +2899,16 @@
 .contributorAvatar {
   width: 70px;
   height: 70px;
-  border-radius: 14px;
+  border-radius: 12px;
   object-fit: cover;
   background: var(--ifm-color-emphasis-100);
-  border: 2px solid var(--ifm-color-emphasis-200);
+  border: 1px solid var(--ifm-color-emphasis-200);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .contributorCard:hover .contributorAvatar {
   border-color: var(--ifm-color-primary);
-  box-shadow: 0 8px 18px -10px rgba(var(--brand-rgb), 0.45);
+  box-shadow: 0 6px 14px -8px rgba(var(--brand-rgb), 0.3);
 }
 
 .contributorLogin {
@@ -3019,8 +2981,8 @@
 
 .supportedByCard {
   width: 100%;
-  padding: 2.5rem 0 2.25rem;
-  background: rgba(var(--brand-rgb), 0.04); /* very pale emerald in light mode */
+  padding: 3.5rem 0 3.25rem;
+  background: #F5F7FA;
   border-top: 1px solid var(--ifm-color-emphasis-200);
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
 }
@@ -3031,6 +2993,8 @@
   border-bottom-color: var(--ifm-color-emphasis-300);
 }
 
+/* Label removed — logos speak for themselves at this size. Kept the rule
+   in case you want it back; just stop rendering it in the JSX. */
 .supportersLabel {
   text-align: center;
   font-size: 0.74rem;
@@ -3060,13 +3024,31 @@
   );
 }
 
+/* Static variant — used when there are too few logos to fill the viewport.
+   Drops the animation, centers the row, removes the edge-fade mask. */
+.supportersStatic {
+  overflow: visible;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.supportersStatic .supportersTrack {
+  animation: none;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem 3rem;
+}
+
 .supportersTrack {
   display: flex;
   align-items: center;
-  gap: 4.5rem;
+  gap: 4rem;
   width: max-content;
-  /* 35s for one full cycle = comfortable read pace for ~5 logos */
-  animation: supportersMarquee 35s linear infinite;
+  /* 42s cycle — sits between Stripe's brisk 30s and the previous 55s drag.
+     With ~104px cards, this gives each logo ~6s in viewport — enough to
+     register, fast enough not to feel sluggish. */
+  animation: supportersMarquee 42s linear infinite;
   will-change: transform;
 }
 
@@ -3091,15 +3073,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 64px;
-  padding: 0.5rem 1.1rem;
+  height: 104px;
+  padding: 0.75rem 1.5rem;
   text-decoration: none;
   background: #ffffff;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid rgba(15, 23, 42, 0.06);
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.06);
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-  opacity: 0.92;
+  opacity: 0.94;
 }
 
 .supporterLogo:hover {
@@ -3116,9 +3098,9 @@
 }
 
 .supporterLogo img {
-  height: 40px;
+  height: 64px;
   width: auto;
-  max-width: 150px;
+  max-width: 280px;
   object-fit: contain;
   display: block;
 }
@@ -3136,19 +3118,21 @@
 }
 
 @media (max-width: 600px) {
-  .supportersLabel {
-    font-size: 0.72rem;
-    margin-bottom: 1rem;
+  .supportedByCard {
+    padding: 1.75rem 0 1.5rem;
   }
   .supportersTrack {
-    gap: 2.5rem;
+    gap: 2.75rem;
+    /* Faster on mobile — narrower viewport, fewer logos visible per moment. */
+    animation-duration: 28s;
   }
   .supporterLogo {
-    height: 44px;
+    height: 80px;
+    padding: 0.55rem 1rem;
   }
   .supporterLogo img {
-    height: 36px;
-    max-width: 120px;
+    height: 52px;
+    max-width: 180px;
   }
 }
 
