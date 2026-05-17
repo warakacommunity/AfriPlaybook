@@ -149,6 +149,89 @@ export default function ContributeOnline() {
             ))}
           </div>
 
+          {/* ── Step 1: Authenticate ──────────────────────────── */}
+          <div className={styles.cfcSubhead} id="step-auth">
+            <Heading as="h2" className={styles.cfcSubheadTitle}>
+              Step 1 — Authenticate with GitHub
+            </Heading>
+            <p className={styles.cfcSubheadLead}>
+              All contributions are submitted as Pull Requests under your GitHub
+              account. Connect once — your session is remembered until you sign
+              out. Three methods are supported; use whichever works for you.
+            </p>
+          </div>
+
+          <div className={styles.scopeGrid}>
+
+            {/* Method A */}
+            <article className={styles.scopeCard}>
+              <h3 className={styles.scopeName}>
+                Sign in with GitHub
+                <span style={{ marginLeft: '0.4em', fontSize: '0.75em', fontWeight: 600, color: 'var(--ifm-color-primary)', verticalAlign: 'middle' }}>Recommended</span>
+              </h3>
+              <p className={styles.scopeIntro}>
+                The fastest option. Opens a GitHub authorization popup in a
+                new window.
+              </p>
+              <ul className={styles.scopeList}>
+                <li>Click <strong>Sign in with GitHub</strong> inside the editor</li>
+                <li>A GitHub popup opens — review the permissions</li>
+                <li>Click <strong>Authorize</strong></li>
+                <li>The popup closes and your avatar appears — you are connected</li>
+              </ul>
+            </article>
+
+            {/* Method B */}
+            <article className={styles.scopeCard}>
+              <h3 className={styles.scopeName}>Device flow</h3>
+              <p className={styles.scopeIntro}>
+                Automatic fallback when your browser blocks popups. No extra
+                setup needed.
+              </p>
+              <ul className={styles.scopeList}>
+                <li>The editor detects the blocked popup and switches automatically</li>
+                <li>A <strong>6-character verification code</strong> appears in the dialog</li>
+                <li>Click the link to open <code>github.com/login/device</code></li>
+                <li>Enter the code and click <strong>Authorize</strong></li>
+                <li>The editor detects authorization and connects your account</li>
+              </ul>
+            </article>
+
+            {/* Method C */}
+            <article className={styles.scopeCard}>
+              <h3 className={styles.scopeName}>Personal Access Token</h3>
+              <p className={styles.scopeIntro}>
+                Use a GitHub token you generate yourself. Useful in restricted
+                network environments.
+              </p>
+              <ul className={styles.scopeList}>
+                <li>Go to <a href="https://github.com/settings/tokens/new?scopes=public_repo&description=Masakhane+Playbook" target="_blank" rel="noopener noreferrer">github.com/settings/tokens</a></li>
+                <li>Select scope <strong>public_repo</strong> (classic token)</li>
+                <li>Generate and copy the token</li>
+                <li>Paste it into the token field in the editor and click <strong>Connect</strong></li>
+              </ul>
+            </article>
+
+          </div>
+
+          {/* Sign-out note */}
+          <article className={styles.requirementsCard} style={{ marginTop: '1.5rem' }}>
+            <ul className={styles.requirementsList}>
+              <li>
+                <span className={styles.requirementsBullet}>✓</span>
+                <span>Your token is stored in <strong>localStorage</strong> on your device only — it is never sent to any server other than GitHub.</span>
+              </li>
+              <li>
+                <span className={styles.requirementsBullet}>✓</span>
+                <span>To sign out, click the avatar in the editor header and choose <strong>Sign out</strong>.</span>
+              </li>
+              <li>
+                <span className={styles.requirementsBullet}>✓</span>
+                <span>The minimum required scope is <code>public_repo</code>. No admin or private-repo access is ever requested.</span>
+              </li>
+            </ul>
+          </article>
+
           {/* Detailed step sections will be added in subsequent commits */}
 
         </div>
