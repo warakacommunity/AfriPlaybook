@@ -94,7 +94,7 @@ export default function AboutNavbarItem() {
             <NewsletterIcon /> Newsletter
           </Link>
           <Link to="/workshops" role="menuitem" className={styles.dropdownItem} onClick={() => setOpen(false)}>
-            <WorkshopsIcon /> Workshops
+            <WorkshopsIcon /> Events
           </Link>
         </div>
       )}
