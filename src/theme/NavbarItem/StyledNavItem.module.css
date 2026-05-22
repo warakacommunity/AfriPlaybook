@@ -10,15 +10,14 @@
   gap: 0.4em;
   padding: 0.45rem 1rem;
   border: none;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #1a5276 0%, #2e86c1 100%);
-  color: #fff;
+  border-radius: 6px;
+  background: none;
+  color: var(--ifm-navbar-link-color);
   font-size: 0.875rem;
-  font-weight: 700;
+  font-weight: 600;
   font-family: inherit;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(26, 82, 118, 0.35);
-  transition: opacity 0.15s, box-shadow 0.15s, transform 0.1s;
+  transition: background 0.15s, color 0.15s;
   white-space: nowrap;
   line-height: 1.4;
   touch-action: manipulation;
@@ -28,23 +27,22 @@
 .playbookBtn:hover,
 .toolBtn:hover,
 .aboutBtn:hover {
-  opacity: 0.92;
-  box-shadow: 0 4px 14px rgba(26, 82, 118, 0.45);
-  transform: translateY(-1px);
-  color: #fff;
+  background: var(--ifm-navbar-link-hover-color);
+  background: rgba(0,0,0,0.06);
+  color: var(--ifm-color-primary);
   text-decoration: none;
 }
 
 .playbookBtn:active,
 .toolBtn:active,
 .aboutBtn:active {
-  transform: translateY(0);
+  background: rgba(0,0,0,0.1);
 }
 
-[data-theme='dark'] .playbookBtn,
-[data-theme='dark'] .toolBtn,
-[data-theme='dark'] .aboutBtn {
-  background: linear-gradient(135deg, #2e86c1 0%, #5dade2 100%);
+[data-theme='dark'] .playbookBtn:hover,
+[data-theme='dark'] .toolBtn:hover,
+[data-theme='dark'] .aboutBtn:hover {
+  background: rgba(255,255,255,0.08);
 }
 
 

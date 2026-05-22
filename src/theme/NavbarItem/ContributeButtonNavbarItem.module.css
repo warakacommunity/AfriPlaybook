@@ -12,32 +12,33 @@
   padding: 0.45rem 1rem;
   touch-action: manipulation;
   border: none;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #1a5276 0%, #2e86c1 100%);
-  color: #fff;
+  border-radius: 6px;
+  background: none;
+  color: var(--ifm-navbar-link-color);
   font-size: 0.875rem;
-  font-weight: 700;
+  font-weight: 600;
   font-family: inherit;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(26, 82, 118, 0.35);
-  transition: opacity 0.15s, box-shadow 0.15s, transform 0.1s;
+  transition: background 0.15s, color 0.15s;
   white-space: nowrap;
   line-height: 1.4;
 }
 
 .contributeBtn:hover {
-  opacity: 0.92;
-  box-shadow: 0 4px 14px rgba(26, 82, 118, 0.45);
-  transform: translateY(-1px);
-  color: #fff;
+  background: rgba(0,0,0,0.06);
+  color: var(--ifm-color-primary);
 }
 
 .contributeBtn:active {
-  transform: translateY(0);
+  background: rgba(0,0,0,0.1);
 }
 
 [data-theme='dark'] .contributeBtn {
-  background: linear-gradient(135deg, #2e86c1 0%, #5dade2 100%);
+  background: none;
+}
+
+[data-theme='dark'] .contributeBtn:hover {
+  background: rgba(255,255,255,0.08);
 }
 
 .chevron {
