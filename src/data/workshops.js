@@ -94,9 +94,9 @@ export const WORKSHOPS = [
       'Clear action list for contributors.',
       'Shared editorial standards across the team.',
     ],
-    audience: ['Masakhane Playbook core contributors and invited reviewers'],
+    audience: ['AfriPlaybook core contributors and invited reviewers'],
     requirements: ['Zoom access', 'Pre-read of assigned chapters'],
-    organizers: [{ name: 'Masakhane Playbook core team', affil: '' }],
+    organizers: [{ name: 'AfriPlaybook core team', affil: '' }],
   },
   {
     id: 'annotation-demo',

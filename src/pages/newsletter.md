@@ -12,7 +12,7 @@ Stay current with **NLP for African languages** — research papers, new dataset
 - **Datasets & resources** — newly released corpora, benchmarks, and tools
 - **Community spotlights** — projects, people, and partnerships across Masakhane, EthioNLP, HausaNLP, Lanfrica, Zindi, and more
 - **Events & calls** — upcoming workshops (AfricaNLP, Indaba, ACL/EMNLP), hackathons, and calls for chapters
-- **Playbook updates** — when new chapters of the [Masakhane Playbook](/playbook/) ship
+- **Playbook updates** — when new chapters of the [AfriPlaybook](/playbook/) ship
 
 ## Subscribe
 

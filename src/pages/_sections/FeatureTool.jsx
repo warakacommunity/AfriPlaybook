@@ -8,7 +8,7 @@ export default function FeatureTool() {
       <div className={clsx('container', styles.featureGrid, styles.featureGridReverse)}>
         <div className={styles.featureCopy}>
           <Heading as="h2" className={styles.blogTeaserHeading}>
-            Masakhane Tool
+            AfriAnnotate
           </Heading>
           <p className={styles.featureLead}>
             An open, mobile-first, Progressive Web App for grassroots data
@@ -52,7 +52,7 @@ export default function FeatureTool() {
                 <div className={styles.mockPhoneHeader}>
                   <div className={styles.mockPhoneBrand}>
                     <span className={styles.mockPhoneLogo}>𝓐</span>
-                    <span className={styles.mockPhoneTitle}>MasakhaneTool</span>
+                    <span className={styles.mockPhoneTitle}>AfriAnnotate</span>
                   </div>
                   <span className={styles.mockPhoneLangBadge}>AM</span>
                 </div>
@@ -104,7 +104,7 @@ export default function FeatureTool() {
                 <div className={styles.mockPhoneHeader}>
                   <div className={styles.mockPhoneBrand}>
                     <span className={styles.mockPhoneLogo}>𝓐</span>
-                    <span className={styles.mockPhoneTitle}>MasakhaneTool</span>
+                    <span className={styles.mockPhoneTitle}>AfriAnnotate</span>
                   </div>
                   <span className={styles.mockPhoneLangBadge}>SW</span>
                 </div>
@@ -148,7 +148,7 @@ export default function FeatureTool() {
                 <div className={styles.mockPhoneHeader}>
                   <div className={styles.mockPhoneBrand}>
                     <span className={styles.mockPhoneLogo}>𝓐</span>
-                    <span className={styles.mockPhoneTitle}>MasakhaneTool</span>
+                    <span className={styles.mockPhoneTitle}>AfriAnnotate</span>
                   </div>
                   <span className={styles.mockPhoneLangBadge}>HA</span>
                 </div>

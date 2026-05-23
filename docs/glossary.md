@@ -1,7 +1,7 @@
 ---
 sidebar_position: 99
 title: Glossary
-description: Definitions of key terms used throughout the Masakhane Playbook.
+description: Definitions of key terms used throughout the AfriPlaybook.
 ---
 
 A reference of terms used throughout the Playbook. Cross-references point back to the chapters where each concept is introduced in depth.

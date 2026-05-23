@@ -341,7 +341,7 @@ const config = {
       announcementBar: {
         id: "live-soon-2026-04",
         content:
-          '✓ <strong>Coming soon</strong> — the Masakhane Playbook will be live shortly. <a href="/MasakhanePlaybook/blog">See latest updates →</a>',
+          '✓ <strong>Coming soon</strong> — the AfriPlaybook will be live shortly. <a href="/MasakhanePlaybook/blog">See latest updates →</a>',
         backgroundColor: "#e8f5ec",
         textColor: "#0f3d2b",
         isCloseable: true,
@@ -410,12 +410,16 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "MasakhanePlaybook",
+                label: "AfriPlaybook",
                 to: "/playbook/",
               },
               {
-                label: "MasakhaneTool",
+                label: "AfriAnnotate",
                 to: "/tool",
+              },
+              {
+                label: "AfriFinder",
+                to: "/afrifinder",
               },
               {
                 label: "Blog",

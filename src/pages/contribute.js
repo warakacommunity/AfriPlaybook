@@ -150,7 +150,7 @@ export default function ContributeClone() {
   return (
     <Layout
       title="Contribute via GitHub"
-      description="Step-by-step guide to contributing to the Masakhane Playbook by cloning the GitHub repository."
+      description="Step-by-step guide to contributing to the AfriPlaybook by cloning the GitHub repository."
     >
       <section className={clsx(styles.section, styles.cfcSection, styles.cfcPageSection)}>
         <div className="container">

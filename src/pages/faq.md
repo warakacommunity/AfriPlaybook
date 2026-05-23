@@ -1,6 +1,6 @@
 ---
 title: Frequently Asked Questions
-description: Answers to the questions we hear most about the Masakhane Playbook and Masakhane Tool — license, contribution, citation, deployment, and more.
+description: Answers to the questions we hear most about the AfriPlaybook and AfriAnnotate — license, contribution, citation, deployment, and more.
 hide_table_of_contents: true
 ---
 
@@ -13,7 +13,7 @@ Click any question to read the answer. If yours isn't covered here, ask on [Disc
 <details className="faq-item">
 <summary>Is the Playbook free to use?</summary>
 
-Yes — entirely. The Playbook content is community-maintained and openly licensed, and the Masakhane Tool annotation platform is **Apache 2.0**. There is no closed version, no paid tier, and no commercial fork. Use it for research, teaching, internal projects, or commercial work — attribution and the original license terms are all that's asked.
+Yes — entirely. The Playbook content is community-maintained and openly licensed, and the AfriAnnotate annotation platform is **Apache 2.0**. There is no closed version, no paid tier, and no commercial fork. Use it for research, teaching, internal projects, or commercial work — attribution and the original license terms are all that's asked.
 
 </details>
 
@@ -40,7 +40,7 @@ If you cite a specific chapter, please include the chapter title and the URL of 
 </details>
 
 <details className="faq-item">
-<summary>Is the Masakhane Tool deployable on-prem?</summary>
+<summary>Is the AfriAnnotate deployable on-prem?</summary>
 
 Yes. The Tool is **Apache 2.0** licensed and ships as a **Progressive Web App**, so you can:
 
@@ -74,12 +74,12 @@ There are several ways, depending on how much time you have:
 </details>
 
 <details className="faq-item">
-<summary>What's the difference between the Playbook and the Masakhane Tool?</summary>
+<summary>What's the difference between the Playbook and the AfriAnnotate?</summary>
 
 They're complementary public goods, not competing products:
 
 - **The Playbook** — this site. An end-to-end **guide** covering data collection, annotation design, quality assurance, modality-specific tasks, documentation, governance, evaluation, lifecycle management, and community collaboration. It's a *manual* you read.
-- **The Masakhane Tool** — a **mobile-first, offline-capable annotation platform** built for African contexts. It's a *piece of software* you run.
+- **The AfriAnnotate** — a **mobile-first, offline-capable annotation platform** built for African contexts. It's a *piece of software* you run.
 
 You can use either independently. They were designed together so the practices in the Playbook are directly supported by the workflows in the Tool.
 

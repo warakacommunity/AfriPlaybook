@@ -26,7 +26,7 @@ export default function ToolNavbarItem() {
   return (
     <Link to="/tool" className={styles.toolBtn}>
       <TagIcon />
-      <span className={styles.btnLabel}>MasakhaneTool</span>
+      <span className={styles.btnLabel}>AfriAnnotate</span>
     </Link>
   );
 }

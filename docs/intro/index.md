@@ -107,14 +107,14 @@ A reference section providing clear definitions of the key terms used throughout
 
 ## How to cite this playbook
 
-If the Masakhane Playbook informs your research, teaching, or project, please cite it.
+If the AfriPlaybook informs your research, teaching, or project, please cite it.
 
 **BibTeX:**
 
 ```bibtex
 @misc{masakhane2026playbook,
   author       = {{Masakhane Community}},
-  title        = {Masakhane Playbook: A Practical Guide for Building NLP Systems for African Languages},
+  title        = {AfriPlaybook: A Practical Guide for Building NLP Systems for African Languages},
   year         = {2026},
   publisher    = {Masakhane},
   url          = {https://masakhanehubnlp.github.io/MasakhanePlaybook/},
@@ -124,7 +124,7 @@ If the Masakhane Playbook informs your research, teaching, or project, please ci
 
 **Plain text (APA-style):**
 
-> Masakhane Community. (2026). *Masakhane Playbook: A Practical Guide for Building NLP Systems for African Languages*. [https://masakhanehubnlp.github.io/MasakhanePlaybook/](https://masakhanehubnlp.github.io/MasakhanePlaybook/)
+> Masakhane Community. (2026). *AfriPlaybook: A Practical Guide for Building NLP Systems for African Languages*. [https://masakhanehubnlp.github.io/MasakhanePlaybook/](https://masakhanehubnlp.github.io/MasakhanePlaybook/)
 
 For other formats (MLA, Chicago, etc.) and a machine-readable [`CITATION.cff`](https://github.com/MasakhaneHubNLP/MasakhanePlaybook/blob/main/CITATION.cff), see the [/cite](/cite) page.
 

@@ -1,10 +1,10 @@
 ---
 title: Roadmap
-description: What's done, what's in flight, and what's planned for the Masakhane Playbook.
+description: What's done, what's in flight, and what's planned for the AfriPlaybook.
 hide_table_of_contents: false
 ---
 
-What the Masakhane Playbook project has shipped, what's in flight right now, and what's planned for the coming quarters. Updated as work moves between columns.
+What the AfriPlaybook project has shipped, what's in flight right now, and what's planned for the coming quarters. Updated as work moves between columns.
 
 *Last updated: 2026-04-30*
 

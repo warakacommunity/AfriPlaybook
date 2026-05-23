@@ -1,10 +1,10 @@
 ---
-title: About the Masakhane Playbook
+title: About the AfriPlaybook
 description: Mission, anchor institutions, partner communities, and how to get in touch.
 hide_table_of_contents: false
 ---
 
-The Masakhane Playbook is a community-driven, openly licensed guide for building NLP datasets, models, and tools for African languages.
+The AfriPlaybook is a community-driven, openly licensed guide for building NLP datasets, models, and tools for African languages.
 
 ## Mission
 

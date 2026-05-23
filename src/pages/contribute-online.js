@@ -338,7 +338,7 @@ export default function ContributeOnline() {
   return (
     <Layout
       title="Contribute Online"
-      description="Step-by-step guide to contributing to the Masakhane Playbook directly in your browser, no local setup required."
+      description="Step-by-step guide to contributing to the AfriPlaybook directly in your browser, no local setup required."
     >
       <section className={clsx(styles.section, styles.cfcSection, styles.cfcPageSection)}>
         <div className="container">
