@@ -266,37 +266,82 @@ export async function fetchDocsTree(token) {
 
 export async function createStructurePR({ token, changes, prTitle, prBody }) {
   try {
+    const user = await ghFetch('/user', token);
+    const userLogin = user.login;
+
     const ref = await ghFetch(`/repos/${OWNER}/${REPO}/git/ref/heads/${BASE_BRANCH}`, token);
     const baseCommitSha = ref.object.sha;
     const baseCommit = await ghFetch(`/repos/${OWNER}/${REPO}/git/commits/${baseCommitSha}`, token);
 
     const treeEntries = changes
-      .filter(c => c.op !== 'delete')  // Only include additions and modifications
+      .filter(c => c.op !== 'delete')
       .map(c => ({ path: c.path, mode: '100644', type: 'blob', content: c.content }));
 
-    const newTree = await ghFetch(`/repos/${OWNER}/${REPO}/git/trees`, token, {
-      method: 'POST',
-      body: JSON.stringify({ base_tree: baseCommit.tree.sha, tree: treeEntries }),
-    });
+    let targetRepoOwner = OWNER;
+    let targetRepoName = REPO;
 
-    const newCommit = await ghFetch(`/repos/${OWNER}/${REPO}/git/commits`, token, {
+    // Try to create tree in main repo; if forbidden, use fork
+    let treeResult = null;
+    try {
+      treeResult = await ghFetch(`/repos/${OWNER}/${REPO}/git/trees`, token, {
+        method: 'POST',
+        body: JSON.stringify({ base_tree: baseCommit.tree.sha, tree: treeEntries }),
+      });
+    } catch (error) {
+      if (error.status === 403) {
+        // No write access to main repo; check for fork
+        try {
+          const fork = await ghFetch(`/repos/${userLogin}/${REPO}`, token);
+          if (fork?.fork) {
+            targetRepoOwner = userLogin;
+            // Try again with fork
+            treeResult = await ghFetch(`/repos/${userLogin}/${REPO}/git/trees`, token, {
+              method: 'POST',
+              body: JSON.stringify({ base_tree: baseCommit.tree.sha, tree: treeEntries }),
+            });
+          } else {
+            throw new Error('user-no-fork');
+          }
+        } catch (forkError) {
+          // Fork doesn't exist
+          throw new Error(
+            `You don't have write access to the main repository.\n\n` +
+            `To contribute publicly, please:\n\n` +
+            `1️⃣  Fork the repository:\n` +
+            `   https://github.com/${OWNER}/${REPO}/fork\n\n` +
+            `2️⃣  Wait 10-15 seconds for the fork to be created\n\n` +
+            `3️⃣  Return to this window and submit your PR again\n\n` +
+            `Your fork will be available at:\n` +
+            `https://github.com/${userLogin}/${REPO}`
+          );
+        }
+      } else {
+        throw error;
+      }
+    }
+
+    // Create commit and branch
+    const newCommit = await ghFetch(`/repos/${targetRepoOwner}/${targetRepoName}/git/commits`, token, {
       method: 'POST',
-      body: JSON.stringify({ message: prTitle, tree: newTree.sha, parents: [baseCommitSha] }),
+      body: JSON.stringify({ message: prTitle, tree: treeResult.sha, parents: [baseCommitSha] }),
     });
 
     const branch = `structure/edit-${Date.now().toString(36)}`;
-    await ghFetch(`/repos/${OWNER}/${REPO}/git/refs`, token, {
+    await ghFetch(`/repos/${targetRepoOwner}/${targetRepoName}/git/refs`, token, {
       method: 'POST',
       body: JSON.stringify({ ref: `refs/heads/${branch}`, sha: newCommit.sha }),
     });
 
+    // Create PR from fork/branch to main repo
+    const prHead = targetRepoOwner === OWNER ? branch : `${targetRepoOwner}:${branch}`;
     const pr = await ghFetch(`/repos/${OWNER}/${REPO}/pulls`, token, {
       method: 'POST',
-      body: JSON.stringify({ title: prTitle, head: branch, base: BASE_BRANCH, body: prBody }),
+      body: JSON.stringify({ title: prTitle, head: prHead, base: BASE_BRANCH, body: prBody }),
     });
 
     return { number: pr.number, url: pr.html_url, branch };
   } catch (error) {
+    console.error('[GitHub API Error]', error);
     throw error;
   }
 }
