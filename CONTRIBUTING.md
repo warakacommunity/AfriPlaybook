@@ -9,13 +9,13 @@ This document covers local setup, the site features that are wired up, and the m
 **Requirements:** Node.js ≥ 20, [Yarn 1.x](https://classic.yarnpkg.com) (do **not** use npm — see Gotchas).
 
 ```bash
-git clone https://github.com/MasakhaneHubNLP/MasakhanePlaybook.git
-cd MasakhanePlaybook
+git clone https://github.com/warakacommunity/AfriPlaybook.git
+cd AfriPlaybook
 yarn install --frozen-lockfile
 yarn start
 ```
 
-Site runs at <http://localhost:3000/MasakhanePlaybook/>.
+Site runs at <http://localhost:3000/AfriPlaybook/>.
 
 To preview a non-English locale:
 
@@ -68,7 +68,7 @@ Comments are wired up but won't render until configured.
 
 1. Repo **Settings → General → Features** → enable **Discussions**.
 2. Install the giscus app: <https://github.com/apps/giscus>
-3. Visit <https://giscus.app>, fill in the form for `MasakhaneHubNLP/MasakhanePlaybook`. Use `pathname` mapping.
+3. Visit <https://giscus.app>, fill in the form for `warakacommunity/AfriPlaybook`. Use `pathname` mapping.
 4. Paste the `data-repo-id` and `data-category-id` values into `src/components/Comments.jsx`.
 
 ### 2. Apply for Algolia DocSearch

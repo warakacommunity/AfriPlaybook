@@ -6,10 +6,10 @@ import Giscus from "@giscus/react";
 // To activate Giscus:
 // 1. Enable Discussions on the repo (Settings → General → Features → Discussions)
 // 2. Install the giscus app: https://github.com/apps/giscus
-// 3. Visit https://giscus.app and pick "MasakhaneHubNLP/MasakhanePlaybook"
+// 3. Visit https://giscus.app and pick "warakacommunity/AfriPlaybook"
 // 4. Copy the data-repo-id and data-category-id from the generated snippet
 // 5. Paste them below in REPO_ID and CATEGORY_ID
-const REPO = "MasakhaneHubNLP/MasakhanePlaybook";
+const REPO = "warakacommunity/AfriPlaybook";
 const REPO_ID = "R_kgDORJq3oQ";
 const CATEGORY = "Comments";
 const CATEGORY_ID = "DIC_kwDORJq3oc4C8EW7";

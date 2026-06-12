@@ -2,7 +2,7 @@
 
 A community-driven, open guide for building, evaluating, and deploying NLP systems for African languages. The Playbook collects practical, reproducible, and culturally grounded guidance for everything from dataset design and annotation through model training, evaluation, deployment, and ethics.
 
-**Live site:** <https://masakhanehubnlp.github.io/MasakhanePlaybook/>
+**Live site:** <https://warakacommunity.github.io/AfriPlaybook/>
 
 This is a living resource maintained by the [Masakhane](https://www.masakhane.io/) community. We welcome contributions from researchers, practitioners, students, language experts, and translators.
 
@@ -55,13 +55,13 @@ The Playbook is a [Docusaurus 3](https://docusaurus.io) site. To install and pre
 ### Clone, install, and run
 
 ```bash
-git clone https://github.com/MasakhaneHubNLP/MasakhanePlaybook.git
-cd MasakhanePlaybook
+git clone https://github.com/warakacommunity/AfriPlaybook.git
+cd AfriPlaybook
 yarn install --frozen-lockfile
 yarn start
 ```
 
-Open <http://localhost:3000/MasakhanePlaybook/> — the site reloads automatically as you edit files.
+Open <http://localhost:3000/AfriPlaybook/> — the site reloads automatically as you edit files.
 
 ### Other useful commands
 
@@ -100,7 +100,7 @@ There's no one way to help. Pick whichever matches what you do best:
 - **Translate** — adapt an existing chapter into Hausa, Amharic, Swahili, French, or Portuguese
 - **Review** — open issues or PRs against existing chapters; correct technical errors, clarify language, suggest references
 - **Add a case study** — a short post in the blog about a real-world Masakhane project
-- **Open a discussion** — got questions or want to debate an approach? Use [GitHub Discussions](https://github.com/MasakhaneHubNLP/MasakhanePlaybook/discussions)
+- **Open a discussion** — got questions or want to debate an approach? Use [GitHub Discussions](https://github.com/warakacommunity/AfriPlaybook/discussions)
 - **Report bugs / suggest features** — see [Reporting issues](#reporting-issues)
 
 ---
@@ -113,7 +113,7 @@ Step-by-step guide for first-time contributors. Even if you're new to git/GitHub
 
 Before you write, **open an issue** describing the chapter you want to add. This avoids two people writing the same thing and lets us help you scope it.
 
-1. Go to <https://github.com/MasakhaneHubNLP/MasakhanePlaybook/issues/new>
+1. Go to <https://github.com/warakacommunity/AfriPlaybook/issues/new>
 2. Title: `Chapter proposal: <your topic>`
 3. In the body, briefly describe:
    - What topic the chapter covers
@@ -125,21 +125,21 @@ We'll respond with feedback or a 👍 to start.
 
 ### Step 2 — Fork and clone the repo
 
-If you don't have write access to `MasakhaneHubNLP/MasakhanePlaybook`, fork it first:
+If you don't have write access to `warakacommunity/AfriPlaybook`, fork it first:
 
-1. Open <https://github.com/MasakhaneHubNLP/MasakhanePlaybook> and click **Fork** (top right).
+1. Open <https://github.com/warakacommunity/AfriPlaybook> and click **Fork** (top right).
 2. Clone your fork to your computer:
 
    ```bash
-   git clone https://github.com/<your-github-username>/MasakhanePlaybook.git
-   cd MasakhanePlaybook
+   git clone https://github.com/<your-github-username>/AfriPlaybook.git
+   cd AfriPlaybook
    ```
 
 If you're already a maintainer with write access:
 
 ```bash
-git clone https://github.com/MasakhaneHubNLP/MasakhanePlaybook.git
-cd MasakhanePlaybook
+git clone https://github.com/warakacommunity/AfriPlaybook.git
+cd AfriPlaybook
 ```
 
 ### Step 3 — Set up the project locally
@@ -156,7 +156,7 @@ yarn install --frozen-lockfile
 yarn start
 ```
 
-Open <http://localhost:3000/MasakhanePlaybook/> — the site reloads automatically as you edit files.
+Open <http://localhost:3000/AfriPlaybook/> — the site reloads automatically as you edit files.
 
 ### Step 4 — Create a branch
 
@@ -248,7 +248,7 @@ git push origin chapter/your-topic-slug
 1. Go to your fork on GitHub.
 2. Click **Compare & pull request** (it appears after pushing a new branch).
 3. Set:
-   - **Base repository**: `MasakhaneHubNLP/MasakhanePlaybook`, branch `main`
+   - **Base repository**: `warakacommunity/AfriPlaybook`, branch `main`
    - **Head**: your fork, branch `chapter/your-topic-slug`
 4. Title: `docs: add chapter on <your topic>`
 5. Body — answer briefly:
@@ -261,7 +261,7 @@ A maintainer will review, suggest edits, and merge once it's ready.
 
 ### What happens after merge
 
-Your chapter is live at <https://masakhanehubnlp.github.io/MasakhanePlaybook/playbook/...> within ~5 minutes (CI rebuilds and deploys all 6 locales).
+Your chapter is live at <https://warakacommunity.github.io/AfriPlaybook/playbook/...> within ~5 minutes (CI rebuilds and deploys all 6 locales).
 
 ---
 
@@ -311,7 +311,7 @@ Blog posts go in `blog/` (separate from chapters). Use them for announcements, c
 
 ## FAQ
 
-Quick answers to the questions we hear most. The full version with more detail lives at [**masakhanehubnlp.github.io/MasakhanePlaybook/faq**](https://masakhanehubnlp.github.io/MasakhanePlaybook/faq).
+Quick answers to the questions we hear most. The full version with more detail lives at [**warakacommunity.github.io/AfriPlaybook/faq**](https://warakacommunity.github.io/AfriPlaybook/faq).
 
 ### Is the Playbook free to use?
 
@@ -323,7 +323,7 @@ Yes. Open an issue with a brief outline first, then write your chapter and open 
 
 ### How do I cite the Playbook?
 
-Every chapter page has a "Cite this page" link. The dedicated [`/cite`](https://masakhanehubnlp.github.io/MasakhanePlaybook/cite) page provides BibTeX, APA, MLA, Chicago, and a machine-readable [`CITATION.cff`](CITATION.cff). See also [How to cite](#how-to-cite) below.
+Every chapter page has a "Cite this page" link. The dedicated [`/cite`](https://warakacommunity.github.io/AfriPlaybook/cite) page provides BibTeX, APA, MLA, Chicago, and a machine-readable [`CITATION.cff`](CITATION.cff). See also [How to cite](#how-to-cite) below.
 
 ### Is the Masakhane Tool deployable on-prem?
 
@@ -335,21 +335,21 @@ The site UI is translated into 6 languages (English, Hausa, Amharic, Swahili, Fr
 
 ### How can I get involved?
 
-5 minutes: star the repo or join Discord. 30 minutes: fix a typo via "Edit this page". A few hours: write a [blog post case study](#how-to-write-a-blog-post). A few weeks: lead a chapter — see the open [Call for Chapter Development Proposals](https://masakhanehubnlp.github.io/MasakhanePlaybook/blog/call-for-chapters-masakhane-playbook).
+5 minutes: star the repo or join Discord. 30 minutes: fix a typo via "Edit this page". A few hours: write a [blog post case study](#how-to-write-a-blog-post). A few weeks: lead a chapter — see the open [Call for Chapter Development Proposals](https://warakacommunity.github.io/AfriPlaybook/blog/call-for-chapters-masakhane-playbook).
 
 ### What's the difference between the Playbook and the Masakhane Tool?
 
 They're complementary, not competing. The Playbook is a **guide** you read; the Tool is a **piece of software** you run. Both are open from day one and were designed together.
 
-For more questions and longer answers, see the [full FAQ page](https://masakhanehubnlp.github.io/MasakhanePlaybook/faq).
+For more questions and longer answers, see the [full FAQ page](https://warakacommunity.github.io/AfriPlaybook/faq).
 
 ---
 
 ## Reporting issues
 
-- **Bug in a chapter** (typo, broken link, wrong information): open a [new issue](https://github.com/MasakhaneHubNLP/MasakhanePlaybook/issues/new) with the URL of the page and what's wrong.
+- **Bug in a chapter** (typo, broken link, wrong information): open a [new issue](https://github.com/warakacommunity/AfriPlaybook/issues/new) with the URL of the page and what's wrong.
 - **Feature request**: open an issue describing what you'd like and why.
-- **Question**: prefer [GitHub Discussions](https://github.com/MasakhaneHubNLP/MasakhanePlaybook/discussions) for open-ended questions.
+- **Question**: prefer [GitHub Discussions](https://github.com/warakacommunity/AfriPlaybook/discussions) for open-ended questions.
 
 ---
 
@@ -365,7 +365,7 @@ If you use the Masakhane Playbook in your research, teaching, or work, please ci
   title        = {Masakhane Playbook: A Practical Guide for Building NLP Systems for African Languages},
   year         = {2026},
   publisher    = {Masakhane},
-  url          = {https://masakhanehubnlp.github.io/MasakhanePlaybook/},
+  url          = {https://warakacommunity.github.io/AfriPlaybook/},
   note         = {Open-source community resource}
 }
 ```

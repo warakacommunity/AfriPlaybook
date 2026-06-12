@@ -3,7 +3,7 @@
  * matching [data-gh-stars]. Caches the result for 6 hours in
  * localStorage to avoid hitting the GitHub API rate limit.
  */
-const REPO = 'MasakhaneHubNLP/MasakhanePlaybook';
+const REPO = 'warakacommunity/AfriPlaybook';
 const CACHE_KEY = 'mp-gh-stars';
 const TTL_MS = 6 * 60 * 60 * 1000;
 

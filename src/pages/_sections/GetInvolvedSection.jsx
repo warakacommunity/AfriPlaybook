@@ -14,13 +14,13 @@ const GET_INVOLVED = [
     icon: IconBookOpen,
     title: 'Write a chapter',
     body: 'Fill a gap in the Playbook — propose a chapter, write it, open a PR.',
-    href: 'https://github.com/MasakhaneHubNLP/MasakhanePlaybook/blob/main/README.md#how-to-contribute-a-chapter',
+    href: 'https://github.com/warakacommunity/AfriPlaybook/blob/main/README.md#how-to-contribute-a-chapter',
   },
   {
     icon: IconSparkles,
     title: 'Translate a page',
     body: 'Adapt an existing chapter into Hausa, Amharic, Swahili, French, or Portuguese.',
-    href: 'https://github.com/MasakhaneHubNLP/MasakhanePlaybook/blob/main/README.md#how-to-translate',
+    href: 'https://github.com/warakacommunity/AfriPlaybook/blob/main/README.md#how-to-translate',
   },
   {
     icon: IconUsers,
@@ -32,7 +32,7 @@ const GET_INVOLVED = [
     icon: IconRocket,
     title: 'Star on GitHub',
     body: 'Help the project gain visibility — every star widens its reach.',
-    href: 'https://github.com/MasakhaneHubNLP/MasakhanePlaybook',
+    href: 'https://github.com/warakacommunity/AfriPlaybook',
   },
 ];
 

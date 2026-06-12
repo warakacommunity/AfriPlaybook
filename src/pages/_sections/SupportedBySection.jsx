@@ -32,7 +32,7 @@ const SUPPORTERS = [
 export default function SupportedBySection() {
   const {withBaseUrl} = useBaseUrlUtils();
   const track = [...SUPPORTERS, ...SUPPORTERS];
-  // Resolve logo paths through baseUrl so they work under /MasakhanePlaybook/.
+  // Resolve logo paths through baseUrl so they work under /AfriPlaybook/.
   // External absolute URLs (http/https) are passed through unchanged.
   const resolveLogo = (src) =>
     /^https?:\/\//.test(src) ? src : withBaseUrl(src);

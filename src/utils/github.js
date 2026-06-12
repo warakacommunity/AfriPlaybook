@@ -1,7 +1,7 @@
 import { slugify } from './markdown';
 
-const OWNER = 'MasakhaneHubNLP';
-const REPO = 'MasakhanePlaybook';
+const OWNER = 'warakacommunity';
+const REPO = 'AfriPlaybook';
 const BASE_BRANCH = 'main';
 const API = 'https://api.github.com';
 const RAW = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BASE_BRANCH}`;
