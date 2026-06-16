@@ -39,7 +39,7 @@ The repository ships a [`CITATION.cff`](https://github.com/MasakhaneHubNLP/Masak
 
 When you reference a specific chapter rather than the playbook as a whole, include the chapter title and its URL. For example:
 
-> Masakhane Community. (2026). Annotation Design and Workforce Management. In *AfriPlaybook: A Practical Guide for Building NLP Systems for African Languages*. [https://warakacommunity.github.io/AfriPlaybook/playbook/annotation-design/](https://warakacommunity.github.io/AfriPlaybook/playbook/annotation-design/)
+> Masakhane Community. (2026). Annotation Design and Workforce Management. In *AfriPlaybook: A Practical Guide for Building NLP Systems for African Languages*. [https://warakacommunity.github.io/AfriPlaybook/annotation-design/](https://warakacommunity.github.io/AfriPlaybook/annotation-design/)
 
 ## Versioning and DOIs
 

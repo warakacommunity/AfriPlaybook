@@ -101,7 +101,7 @@ Ready to begin? Start with our foundational sections:
 
 ## Glossary and Terminology
 
-A reference section providing clear definitions of the key terms used throughout the playbook — see the **[Glossary](/playbook/glossary)** for definitions of *annotation, inter-annotator agreement, Cohen's kappa, low-resource language, modality,* and other terms.
+A reference section providing clear definitions of the key terms used throughout the playbook — see the **[Glossary](/AfriPlaybook/glossary)** for definitions of *annotation, inter-annotator agreement, Cohen's kappa, low-resource language, modality,* and other terms.
 
 ---
 

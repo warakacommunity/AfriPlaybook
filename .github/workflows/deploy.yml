@@ -1,8 +1,21 @@
-name: Deploy to GitHub Pages
+name: Deploy to warakacommunity.github.io
+
+# Cross-repo deploy: the source (incl. all playbook chapters in docs/) lives in
+# THIS repo (warakacommunity/AfriPlaybook); the built static site is published to
+# the org-root Pages repo warakacommunity/warakacommunity.github.io and served at
+# https://warakacommunity.github.io/.
+#
+# Requires a repo secret named DEPLOY_TOKEN: a Personal Access Token belonging to
+# a user with write access to warakacommunity.github.io.
+#   - Classic PAT: scope `repo`
+#   - Fine-grained PAT: repository = warakacommunity/warakacommunity.github.io,
+#     permission "Contents: Read and write"
+# Add it under: this repo → Settings → Secrets and variables → Actions → New secret.
 
 on:
   push:
     branches: [main] # This triggers the build every time you push to main
+  workflow_dispatch: # allow manual runs from the Actions tab
 
 jobs:
   deploy:
@@ -35,10 +48,16 @@ jobs:
       - name: Copy PDF into build output
         run: mkdir -p build/downloads && cp static/downloads/masakhane-playbook.pdf build/downloads/
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to warakacommunity.github.io (gh-pages branch)
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Cross-repo publish requires a PAT, not the default GITHUB_TOKEN
+          # (which can only write to the current repo).
+          personal_token: ${{ secrets.DEPLOY_TOKEN }}
+          external_repository: warakacommunity/warakacommunity.github.io
+          publish_branch: gh-pages
           publish_dir: ./build # Docusaurus builds into the 'build' folder
+          # Wipe the destination each deploy so removed pages don't linger.
+          force_orphan: true
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'

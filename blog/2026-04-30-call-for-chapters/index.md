@@ -56,7 +56,7 @@ We welcome chapter proposals on (but not limited to):
 
 ## How to get involved
 
-- **Read the existing Playbook**: [/playbook](/playbook/)
+- **Read the existing Playbook**: [/AfriPlaybook](/AfriPlaybook/)
 - **Open a proposal issue** on the [GitHub repository](https://github.com/MasakhaneHubNLP/MasakhanePlaybook/issues/new)
 - **Join the Masakhane community**: [masakhane.io](https://www.masakhane.io/)
 - **Questions?** Reach out via the GitHub Discussions tab on the repo.

@@ -2,7 +2,7 @@
 
 A community-driven, open guide for building, evaluating, and deploying NLP systems for African languages. The Playbook collects practical, reproducible, and culturally grounded guidance for everything from dataset design and annotation through model training, evaluation, deployment, and ethics.
 
-**Live site:** <https://warakacommunity.github.io/AfriPlaybook/>
+**Live site:** <https://warakacommunity.github.io/>
 
 This is a living resource maintained by the [Masakhane](https://www.masakhane.io/) community. We welcome contributions from researchers, practitioners, students, language experts, and translators.
 
@@ -61,7 +61,7 @@ yarn install --frozen-lockfile
 yarn start
 ```
 
-Open <http://localhost:3000/AfriPlaybook/> — the site reloads automatically as you edit files.
+Open <http://localhost:3000/> — the site reloads automatically as you edit files.
 
 ### Other useful commands
 
@@ -156,7 +156,7 @@ yarn install --frozen-lockfile
 yarn start
 ```
 
-Open <http://localhost:3000/AfriPlaybook/> — the site reloads automatically as you edit files.
+Open <http://localhost:3000/> — the site reloads automatically as you edit files.
 
 ### Step 4 — Create a branch
 
@@ -261,7 +261,7 @@ A maintainer will review, suggest edits, and merge once it's ready.
 
 ### What happens after merge
 
-Your chapter is live at <https://warakacommunity.github.io/AfriPlaybook/playbook/...> within ~5 minutes (CI rebuilds and deploys all 6 locales).
+Your chapter is live at <https://warakacommunity.github.io/AfriPlaybook/...> within ~5 minutes (CI rebuilds and deploys all 6 locales).
 
 ---
 
@@ -311,7 +311,7 @@ Blog posts go in `blog/` (separate from chapters). Use them for announcements, c
 
 ## FAQ
 
-Quick answers to the questions we hear most. The full version with more detail lives at [**warakacommunity.github.io/AfriPlaybook/faq**](https://warakacommunity.github.io/AfriPlaybook/faq).
+Quick answers to the questions we hear most. The full version with more detail lives at [**warakacommunity.github.io/faq**](https://warakacommunity.github.io/faq).
 
 ### Is the Playbook free to use?
 
@@ -323,7 +323,7 @@ Yes. Open an issue with a brief outline first, then write your chapter and open 
 
 ### How do I cite the Playbook?
 
-Every chapter page has a "Cite this page" link. The dedicated [`/cite`](https://warakacommunity.github.io/AfriPlaybook/cite) page provides BibTeX, APA, MLA, Chicago, and a machine-readable [`CITATION.cff`](CITATION.cff). See also [How to cite](#how-to-cite) below.
+Every chapter page has a "Cite this page" link. The dedicated [`/cite`](https://warakacommunity.github.io/cite) page provides BibTeX, APA, MLA, Chicago, and a machine-readable [`CITATION.cff`](CITATION.cff). See also [How to cite](#how-to-cite) below.
 
 ### Is the Masakhane Tool deployable on-prem?
 
@@ -335,13 +335,13 @@ The site UI is translated into 6 languages (English, Hausa, Amharic, Swahili, Fr
 
 ### How can I get involved?
 
-5 minutes: star the repo or join Discord. 30 minutes: fix a typo via "Edit this page". A few hours: write a [blog post case study](#how-to-write-a-blog-post). A few weeks: lead a chapter — see the open [Call for Chapter Development Proposals](https://warakacommunity.github.io/AfriPlaybook/blog/call-for-chapters-masakhane-playbook).
+5 minutes: star the repo or join Discord. 30 minutes: fix a typo via "Edit this page". A few hours: write a [blog post case study](#how-to-write-a-blog-post). A few weeks: lead a chapter — see the open [Call for Chapter Development Proposals](https://warakacommunity.github.io/blog/call-for-chapters-masakhane-playbook).
 
 ### What's the difference between the Playbook and the Masakhane Tool?
 
 They're complementary, not competing. The Playbook is a **guide** you read; the Tool is a **piece of software** you run. Both are open from day one and were designed together.
 
-For more questions and longer answers, see the [full FAQ page](https://warakacommunity.github.io/AfriPlaybook/faq).
+For more questions and longer answers, see the [full FAQ page](https://warakacommunity.github.io/faq).
 
 ---
 

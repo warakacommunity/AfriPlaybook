@@ -254,7 +254,7 @@ export default function ContributeClone() {
               and edit or translate any page directly in your browser.
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '1.5rem', flexWrap: 'wrap' }}>
-              <Link to="/playbook/" className={clsx('button', styles.primaryButton)}>
+              <Link to="/AfriPlaybook/" className={clsx('button', styles.primaryButton)}>
                 Browse the Playbook
               </Link>
               <Link to="/about" className={clsx('button', styles.secondaryButton)}>

@@ -17,7 +17,7 @@ What the AfriPlaybook project has shipped, what's in flight right now, and what'
 - Internationalisation scaffolding for 6 languages (English + Hausa, Amharic, Swahili, French, Portuguese)
 - Citation system: per-page "Cite this page" link, BibTeX, APA, MLA, Chicago, machine-readable [`CITATION.cff`](https://github.com/MasakhaneHubNLP/MasakhanePlaybook/blob/main/CITATION.cff)
 - Community channels: Discord, GitHub Discussions, AfricaNLP Newsletter signup page
-- Math (KaTeX), Mermaid-ready diagrams, comments via [Giscus](/playbook/), Cloudflare Web Analytics
+- Math (KaTeX), Mermaid-ready diagrams, comments via [Giscus](/AfriPlaybook/), Cloudflare Web Analytics
 
 **Community**
 

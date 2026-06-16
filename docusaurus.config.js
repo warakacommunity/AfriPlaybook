@@ -36,14 +36,14 @@ const config = {
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   // baseUrl: '/',
-  baseUrl: "/AfriPlaybook/",
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   // organizationName: 'warakacommunity', // Usually your GitHub org/user name.
   organizationName: "warakacommunity",
   // projectName: 'AfriPlaybook.github.io', // Usually your repo name.
-  projectName: "AfriPlaybook",
+  projectName: "warakacommunity.github.io",
   deploymentBranch: "gh-pages",
   trailingSlash: false,
   onBrokenLinks: "throw",
@@ -94,7 +94,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: "/playbook",
+          routeBasePath: "/AfriPlaybook",
           sidebarPath: "./sidebars.js",
           breadcrumbs: false,
           showLastUpdateTime: true,
@@ -301,12 +301,12 @@ const config = {
           {
             tagName: "link",
             rel: "icon",
-            href: "/AfriPlaybook/img/logo.svg",
+            href: "/img/logo.svg",
           },
           {
             tagName: "link",
             rel: "manifest",
-            href: "/AfriPlaybook/manifest.json",
+            href: "/manifest.json",
           },
           {
             tagName: "meta",
@@ -326,7 +326,7 @@ const config = {
           {
             tagName: "link",
             rel: "apple-touch-icon",
-            href: "/AfriPlaybook/img/logo.svg",
+            href: "/img/logo.svg",
           },
         ],
       },
@@ -409,7 +409,7 @@ const config = {
             items: [
               {
                 label: "AfriPlaybook",
-                to: "/playbook/",
+                to: "/AfriPlaybook/",
               },
               {
                 label: "AfriAnnotate",
@@ -459,7 +459,7 @@ const config = {
               },
               {
                 label: "Glossary",
-                to: "/playbook/glossary",
+                to: "/AfriPlaybook/glossary",
               },
               {
                 label: "Cite this Playbook",

@@ -30,7 +30,7 @@ export default function HeroSection() {
               the continent.
             </p>
             <div className={styles.heroButtons}>
-              <Link className={clsx('button', styles.primaryButton)} to="/playbook/">
+              <Link className={clsx('button', styles.primaryButton)} to="/AfriPlaybook/">
                 <IconBookOpen size={18} /> Read the Playbook
               </Link>
               <Link className={clsx('button', styles.secondaryButton)} to="/tool">
