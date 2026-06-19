@@ -16,9 +16,11 @@ Sentiment analysis can be annotated into one or more of the following annotation
 ![Types of sentiment analysis](images/sentiment-analysis.png)
 
 
-**Fine-grained (Scaling) analysis: **Graded sentiment analysis assigns scores on a scale, providing a more nuanced view of sentiment intensity. This approach helps gauge the strength of emotions expressed in the text. For example, a review might be labeled as “very positive,” “slightly positive,” “neutral,” “slightly negative,” or “very negative.”
+**Fine-grained (Scaling) analysis:**
+Graded sentiment analysis assigns scores on a scale, providing a more nuanced view of sentiment intensity. This approach helps gauge the strength of emotions expressed in the text. For example, a review might be labeled as “very positive,” “slightly positive,” “neutral,” “slightly negative,” or “very negative.”
 
- **Aspect-based analysis: **This focuses on identifying sentiment towards specific aspects or features of a product, service, or topic. For instance, in a hotel review, aspect-based analysis might determine positive sentiment towards the location but negative sentiment towards the cleanliness. For a smartphone review, it separately analyzes battery, screen, camera and performance to understand customer sentiment for each aspect.
+ **Aspect-based analysis:**
+ This focuses on identifying sentiment towards specific aspects or features of a product, service, or topic. For instance, in a hotel review, aspect-based analysis might determine positive sentiment towards the location but negative sentiment towards the cleanliness. For a smartphone review, it separately analyzes battery, screen, camera and performance to understand customer sentiment for each aspect.
 
 **Intent-based analysis**
 
@@ -35,27 +37,4 @@ While the types of sentiment targets can differ, the annotation labels can be tw
 
 Examples of sentiment analysis are as follows:
 
-**Positive**
-
-- I love this car.
-- This view is amazing.
-- I feel great this morning.
-- I am so excited about the concert.
-- He is my best friend.
-
-**Negative**
-
-- I do not like this car.
-- This view is horrible.
-- I feel tired this morning.
-- I am not looking forward to the concert.
-- He is my enemy.
-
-**Mixed**
-
-- She is beautiful, but notorious.
-
-**Neutral**
-
-- There is a book on the desk.
-- The sun lays on the sky.
+![Sentiment analysis label definition and examples](images/sentiment.png)

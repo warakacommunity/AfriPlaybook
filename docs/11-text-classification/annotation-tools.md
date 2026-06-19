@@ -60,7 +60,6 @@ However, these tools lack the quality-control and management features; they are 
 
 ![Annotation tools](images/annotation-tools.png)
 
-C:\Users\user\OneDrive\Documents\Masakhane Playbook\AfriPlaybook\docs\images\annotation-tools.png
 ### **Choose an annotation tool based on:**
 - Data sensitivity and privacy needs.
 - Whether self-hosting is required.

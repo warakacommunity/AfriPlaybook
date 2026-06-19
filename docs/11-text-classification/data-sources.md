@@ -12,10 +12,10 @@ Data source is the place where we get the data (text, audio, image or any of the
 
 ![Data sources](images/data-sources.png)
 
-:::info[📚 Data source selection rule]
+:::info[Tips ]
 When selecting a source, prefer data that naturally contains the phenomenon of interest. For example, if the goal is to study offensive speech, choose platforms where interpersonal conflict or public debate is common. If the goal is to study sentiment, choose sources where opinions, reviews, and evaluations are frequent.
 :::
 
-:::warning[⚠️ Benchmark datasets]
+:::warning[Benchmark datasets]
 Warning. Benchmark datasets are useful for comparison, but they may not reflect the target language variety, region, or social context. Always check whether the original data distribution matches your intended use case.
 :::

@@ -27,9 +27,7 @@ The simplest measure of agreement is percentage agreement, which calculates the 
 
 ```
 Agreement %= (Number of Agreed instances / Total Number of Instances) * 100
-
 *For example, if two annotators label 1,000 texts and agree on 850 of them:*
-
 Agreement % = (850 / 1000) * 100 = 85%
 
 ```
@@ -41,19 +39,12 @@ Although easy to understand, percentage agreement does not account for agreement
 When exactly two annotators label each instance, Cohen's Kappa is the most commonly used agreement metric. Cohen's Kappa adjusts for the amount of agreement that could occur purely by chance.
 
 ```
-
 Kappa = (Observed Agreement - Expected Agreement) / (1 - Expected Agreement)
-
 Or
-
 Kappa = (Po - Pe) / (1 - Pe)
-
 Where:
-
 Observed agreement (Po) is the proportion of instances where the annotators actually agreed.
-
 Po​=Total number of items/Number of agreements​
-
 Expected Agreement (Pe) represents the level of agreement that would be expected to occur purely by chance, given the distribution of labels assigned by each annotator. It is calculated by determining the probability that both annotators independently select the same category and then summing these probabilities across all categories.
 
 ```
@@ -64,15 +55,10 @@ Cohen's Kappa is widely used in sentiment analysis, hate speech detection, topic
 
 ```
 from sklearn.metrics import cohen*kappa*score
-
 annotator1 = [0, 1, 1, 0, 2]
-
 annotator2 = [0, 1, 0, 0, 2]
-
 kappa = cohen*kappa*score(annotator1, annotator2)
-
 print(kappa)
-
 ```
 
 ## **Agreement Among Three or More Annotators**
@@ -92,11 +78,8 @@ It is appropriate when:d
 
 ```
 Fleiss kappa (k) = P−Pe)/(1-Pe)
-
 Where
-
 p is the mean of the agreement probability over all raters and
-
 Pe is the mean agreement probability over all raters if they were randomly assigned.
 
 ```
@@ -126,27 +109,17 @@ Kappa Score	Interpretation
 
 ```
 < 0.00 Poor Agreement
-
 0.00 - 0.20 Slight Agreement
-
 0.21 - 0.40 Fair Agreement
-
 0.41 - 0.60 Moderate Agreement
-
 0.61 - 0.80 Substantial Agreement
-
 0.81 - 1.00 Almost Perfect / Excellent Agreement
 
 *As a general guideline:*
-
 < 0.40: dataset quality should be carefully reviewed.
-
 0.40-0.60: acceptable for difficult or subjective tasks.
-
 0.60-0.80: considered good agreement.
-
 Above 0.80: considered very strong agreement.
-
 ```
 
 For highly subjective tasks such as emotion classification, sarcasm detection, or offensiveness annotation, lower agreement scores may still be acceptable due to genuine differences in human interpretation.
@@ -164,13 +137,21 @@ When publishing a dataset, researchers should report:
 
 Transparent reporting of annotation agreement improves the credibility, reproducibility, and scientific value of the dataset.
 
-Agreement Metric guidance:
+**Agreement Metric guidance:**
 - Use percentage agreement only as a simple descriptive measure.
 - Use Cohen’s kappa when there are exactly two annotators.
 - Use Fleiss’ kappa when there are three or more annotators and each item has the same number of labels.
 - Use Krippendorff’s alpha when annotations may be missing or when you want a more flexible reliability measure.
 
 Note that agreemnet metrics are not the only listed above, m=explore more agrement metrics that suits the targetd task.
+
+**When reporting agreement, include:**
+- Number of annotators.
+- Label schema.
+- Aggregation method.
+- Agreement metric used.
+- Final adjudication procedure.
+- Any known limitations of the task or labels.
 
 
 Example how to calculate sklearn / statsmodels / krippendorff

@@ -7,7 +7,7 @@ sidebar_label: "Data Collection and Selection Approaches"
 Data can be collected through APIs, web scraping (with permission), manual collection, or surveys, while preserving useful metadata such as source, time, language, and identifiers for future analysis. Data sources should be relevant to the target domain, language, and cultural context, with careful attention to dataset quality, class balance, and representativeness. Throughout the process, researchers must also address ethical and legal requirements, including privacy, consent, and compliance with platform policies. Data samples can be collected using one of the approaches below.
 
 
-:::info[📚 Annotation objective]
+:::info[Tips ]
 Data collection should be guided by the annotation objective and the expected label distribution. For example, if a dataset is likely to contain too few hateful texts, keyword-based filtering or distant supervision can be used to enrich the sample. If the goal is to estimate natural distribution, random sampling or stratified sampling is more appropriate.
 :::
 
@@ -109,7 +109,10 @@ print("Send these to annotators next:", to_label)
 - Use stratified sampling when you want to preserve balance across classes, sources, time periods, or demographic groups. 
 Any combination of the above also works well to filter quality data.
 
+### **Comparisons of Data selection methods:**
+![Types of sentiment analysis](images/methods.png)
 
-:::info[📚 Tips]
+
+:::info[Tips ]
 Always store metadata such as source, timestamp, language, and collection method. This makes later analysis, error inspection, and dataset documentation much easier.
 :::

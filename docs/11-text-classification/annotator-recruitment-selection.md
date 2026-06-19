@@ -12,11 +12,11 @@ Effective annotation relies more on the quality and consistency of annotators th
 ![Annotator selection](images/annotator-selection.png)
 
 
-:::info[📚 Scope note]
+:::info[Tips ]
 Use a short qualification round before the main task. The goal is not only to select competent annotators, but also to identify whether the guidelines are clear enough to be applied consistently.
 :::
 
-Before annotation begins, screen annotators for:
+**Before annotation begins, screen annotators for:**
 - Language proficiency.
 - Domain familiarity.
 - Ability to follow instructions carefully.
