@@ -278,6 +278,101 @@ const config = {
         },
       };
     },
+    /* Per-page GitHub contributors. At build time, for every doc file, asks
+       the GitHub API who has committed to it and exposes the unique authors
+       (login, avatar, profile URL) via globalData, keyed by the file path
+       relative to siteDir (e.g. "docs/intro/index.md"). The swizzled
+       DocItem/Footer reads this and renders an avatar row.
+
+       Needs GITHUB_TOKEN (or GITHUB_EDIT_TOKEN) to avoid the 60 req/hr
+       anonymous limit — set it in CI. With no token, or on any error, it
+       returns {} so the build still succeeds and the footer simply omits the
+       contributor row (the git "Last updated by" line is unaffected). */
+    function docContributorsPlugin(context) {
+      return {
+        name: "doc-contributors",
+        async loadContent() {
+          const fs = require("fs");
+          const path = require("path");
+          const token =
+            process.env.GITHUB_TOKEN || process.env.GITHUB_EDIT_TOKEN;
+          if (!token) {
+            console.warn(
+              "[doc-contributors] no GITHUB_TOKEN — skipping (footer will omit contributors)",
+            );
+            return {};
+          }
+          const OWNER = "warakacommunity";
+          const REPO = "AfriPlaybook";
+          const docsDir = path.join(context.siteDir, "docs");
+          if (!fs.existsSync(docsDir)) return {};
+
+          const files = [];
+          (function walk(dir) {
+            for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+              const full = path.join(dir, e.name);
+              if (e.isDirectory()) walk(full);
+              else if (/\.mdx?$/.test(e.name))
+                files.push(path.relative(context.siteDir, full));
+            }
+          })(docsDir);
+
+          const headers = {
+            "User-Agent": "AfriPlaybook-build",
+            Authorization: `Bearer ${token}`,
+            Accept: "application/vnd.github+json",
+            "X-GitHub-Api-Version": "2022-11-28",
+          };
+          const result = {};
+
+          // bounded concurrency over the file list
+          let cursor = 0;
+          async function worker() {
+            while (cursor < files.length) {
+              const rel = files[cursor++];
+              try {
+                const url = `https://api.github.com/repos/${OWNER}/${REPO}/commits?path=${encodeURIComponent(
+                  rel,
+                )}&per_page=100`;
+                const res = await fetch(url, { headers });
+                if (!res.ok) continue;
+                const commits = await res.json();
+                const seen = new Map();
+                for (const c of commits) {
+                  const a = c.author; // GitHub user; null if email not linked
+                  if (!a || a.type !== "User") continue;
+                  if (!seen.has(a.login)) {
+                    seen.set(a.login, {
+                      login: a.login,
+                      avatarUrl: a.avatar_url,
+                      htmlUrl: a.html_url,
+                      commits: 0,
+                    });
+                  }
+                  seen.get(a.login).commits++;
+                }
+                if (seen.size) {
+                  result[rel] = [...seen.values()].sort(
+                    (x, y) => y.commits - x.commits,
+                  );
+                }
+              } catch (err) {
+                console.warn(
+                  `[doc-contributors] ${rel}: ${err.message}`,
+                );
+              }
+            }
+          }
+          await Promise.all(
+            Array.from({ length: 8 }, () => worker()),
+          );
+          return result;
+        },
+        async contentLoaded({ content, actions }) {
+          actions.setGlobalData({ docContributors: content || {} });
+        },
+      };
+    },
     [
       "@docusaurus/plugin-ideal-image",
       {

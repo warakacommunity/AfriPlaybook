@@ -2,6 +2,15 @@ import React, { useEffect, useState } from "react";
 import Footer from "@theme-original/DocItem/Footer";
 import Link from "@docusaurus/Link";
 import { useDoc } from "@docusaurus/plugin-content-docs/client";
+import { usePluginData } from "@docusaurus/useGlobalData";
+
+function useDocContributors(metadata) {
+  const data = usePluginData("doc-contributors");
+  const byPath = (data && data.docContributors) || {};
+  // metadata.source is like "@site/docs/intro/index.md"
+  const relPath = metadata?.source?.replace(/^@site\//, "");
+  return (relPath && byPath[relPath]) || [];
+}
 
 const WORDS_PER_MINUTE = 220;
 
@@ -22,6 +31,7 @@ function useReadingTime() {
 export default function FooterWrapper(props) {
   const minutes = useReadingTime();
   const { metadata } = useDoc();
+  const contributors = useDocContributors(metadata);
 
   return (
     <>
@@ -60,6 +70,28 @@ export default function FooterWrapper(props) {
           </span>
         )}
       </div>
+      {contributors.length > 0 && (
+        <div className="doc-contributors">
+          <span className="doc-contributors__label">
+            {contributors.length === 1 ? "Contributor" : "Contributors"}
+          </span>
+          <div className="doc-contributors__avatars">
+            {contributors.map((c) => (
+              <a
+                key={c.login}
+                href={c.htmlUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="doc-contributors__avatar"
+                title={`@${c.login}`}
+                aria-label={`@${c.login} on GitHub`}
+              >
+                <img src={c.avatarUrl} alt={`@${c.login}`} width={28} height={28} loading="lazy" />
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
       <Footer {...props} />
     </>
   );

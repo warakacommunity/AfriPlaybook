@@ -800,3 +800,46 @@ main[itemtype="https://schema.org/Blog"] .blog-card:hover {
   opacity: 1;
 }
 
+
+/* Per-page GitHub contributors (rendered by src/theme/DocItem/Footer) */
+.doc-contributors {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 1rem 0 0.25rem;
+  flex-wrap: wrap;
+}
+.doc-contributors__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ifm-color-emphasis-600);
+}
+.doc-contributors__avatars {
+  display: flex;
+}
+.doc-contributors__avatar {
+  display: inline-flex;
+  margin-left: -8px;
+  border-radius: 50%;
+  transition: transform 0.15s ease;
+}
+.doc-contributors__avatar:first-child {
+  margin-left: 0;
+}
+.doc-contributors__avatar img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: block;
+  background: var(--surface-wash);
+  box-shadow: 0 0 0 2px var(--ifm-background-color);
+}
+.doc-contributors__avatar:hover {
+  transform: translateY(-2px);
+  z-index: 1;
+}
+.doc-contributors__avatar:hover img {
+  box-shadow: 0 0 0 2px var(--ifm-color-primary);
+}
