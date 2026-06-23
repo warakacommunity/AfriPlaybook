@@ -76,6 +76,24 @@ function starterCategory(label, position, description = '') {
   return JSON.stringify({ label, position, link }, null, 2);
 }
 
+/** Strip a leading chapter number ("11. ", "11- ", "11) ") from a typed title. */
+function stripChapterNumber(title) {
+  return String(title).replace(/^\s*\d+\s*[.\-)]\s+/, '').trim();
+}
+
+/**
+ * Derive a top-level chapter's folder slug and display label from a raw title.
+ * Convention (matches the hand-authored chapters): the folder name carries NO
+ * number prefix — Docusaurus strips "NN-" from URLs anyway — and the chapter
+ * number lives in `position` (ordering) plus a "NN. " prefix on the label.
+ * Any number the author typed into the title is stripped first so it can't leak
+ * back into the folder slug or get doubled in the label.
+ */
+function makeChapter(rawLabel, position) {
+  const title = stripChapterNumber(rawLabel) || String(rawLabel).trim();
+  return { slug: slugify(title), label: `${position}. ${title}` };
+}
+
 /* ── Modal content ───────────────────────────────────────────────────── */
 
 /**
@@ -540,10 +558,9 @@ export function StructureEditorContent({ onClose }) {
       upsert(path, buildUploadContent(markdown, title, position));
 
     } else if (uploadPlacement === 'section') {
-      const label = uploadSectionName.trim() || title;
-      const slug = slugify(label);
       const position = tree.filter(n => n.type === 'section')
         .reduce((m, n) => Math.max(m, isFinite(n.position) ? n.position : 0), 0) + 1;
+      const { slug, label } = makeChapter(uploadSectionName.trim() || title, position);
       upsert(`docs/${slug}/_category_.json`, starterCategory(label, position));
       upsert(`docs/${slug}/${pageSlug}.md`, buildUploadContent(markdown, title, 1));
       setExpanded(prev => new Set([...prev, `docs/${slug}`]));
@@ -578,10 +595,9 @@ export function StructureEditorContent({ onClose }) {
 
     } else if (uploadPlacement === 'section') {
       // Create ONE top-level section and add all items as pages within it
-      const label = uploadSectionName.trim() || uploadBatch[0].title;
-      const slug = slugify(label);
       const position = tree.filter(n => n.type === 'section')
         .reduce((m, n) => Math.max(m, isFinite(n.position) ? n.position : 0), 0) + 1;
+      const { slug, label } = makeChapter(uploadSectionName.trim() || uploadBatch[0].title, position);
       upsert(`docs/${slug}/_category_.json`, starterCategory(label, position));
 
       // Add all batch items as pages within this section, preserving order
@@ -842,9 +858,9 @@ export function StructureEditorContent({ onClose }) {
     return search(tree) || [];
   }
 
-  function addSection(label) {
-    const slug = slugify(label);
+  function addSection(rawLabel) {
     const position = tree.filter(n => n.type === 'section').reduce((m, n) => Math.max(m, isFinite(n.position) ? n.position : 0), 0) + 1;
+    const { slug, label } = makeChapter(rawLabel, position);
     upsert(`docs/${slug}/_category_.json`, starterCategory(label, position));
     upsert(`docs/${slug}/intro.md`, starterPage('Introduction', 1));
     setExpanded(prev => new Set([...prev, `docs/${slug}`]));
