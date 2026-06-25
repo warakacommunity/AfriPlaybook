@@ -152,7 +152,8 @@ const FAQ = [
 ];
 
 export default function Fellowship() {
-  const mark = useBaseUrl('/img/brand/afriannotate-mark.svg');
+  const logo = useBaseUrl('/img/brand/afrifellowship-lockup.svg');
+  const mark = useBaseUrl('/img/brand/afrifellowship-mark.svg');
   const cohortImg = useBaseUrl('/img/fellowship/cohort.jpg');
   const mentorshipImg = useBaseUrl('/img/fellowship/mentorship.jpg');
   const applyImg = useBaseUrl('/img/fellowship/apply.jpg');
@@ -178,7 +179,7 @@ export default function Fellowship() {
           <div className="lp-hero-fold">
             <img className="lp-hero-bg" src={mark} alt="" aria-hidden="true" />
             <div className="lp-wrap lp-hero-center">
-              <span className="lp-eyebrow lp-anim lp-d1">AfriNLP Fellowship</span>
+              <img className="lp-hero-logo lp-anim lp-d1" src={logo} alt="AfriNLP Fellowship" />
               <div className="lp-tickframe lp-anim lp-d2">
                 <span className="lp-tick lp-tick-tl" />
                 <span className="lp-tick lp-tick-tr" />
