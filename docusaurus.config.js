@@ -31,8 +31,9 @@ const config = {
   // },
 
   // Set the production url of your site here.
-  // Served from Cloudflare Pages on the waraka.ai zone.
-  url: "https://playbook.waraka.ai",
+  // This is the community hub (landing page + menubar) on the waraka.ai zone.
+  // The Playbook section will later move to its own playbook.waraka.ai deploy.
+  url: "https://community.waraka.ai",
   // Served at the domain root, so baseUrl is '/'.
   baseUrl: "/",
 
